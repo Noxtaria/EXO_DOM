@@ -27,6 +27,18 @@ chiens.forEach(chien => {
     select.innerHTML += `<option value="${chiens.indexOf(chien)+1}"> ${chien.nom} </option> `;
 });
 
+select.addEventListener('change', () => {
+    let dogId = select.value;
+    if(dogId != 0) {
+    output.textContent = `Vous avez séléctionné le chien avec l'ID : ${dogId}`;
+    } else {
+        output.textContent = "";
+    }
+})
+
+// btn.addEventListener('submit', () => {
+
+// })
 
 
 // let options = "`<option value='' disabled selected> Veuillez sélectionnez un chien </option>`";
