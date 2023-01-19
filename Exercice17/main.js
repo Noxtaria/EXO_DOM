@@ -23,9 +23,13 @@ const output = document.getElementById('selectOutput');
 // console.log(output);
 
 
-chiens.forEach(chien => {
-    select.innerHTML += `<option value="${chiens.indexOf(chien)+1}"> ${chien.nom} </option> `;
-});
+const refreshDogSelect = () => {
+    select.innerHTML = `<option value="0"> Sélectionnez un chien </option>`;
+    chiens.forEach(chien => {
+        select.innerHTML += `<option value="${chiens.indexOf(chien)+1}"> ${chien.nom} </option> `;
+    });
+}
+
 
 select.addEventListener('change', () => {
     let dogId = select.value;
@@ -36,48 +40,19 @@ select.addEventListener('change', () => {
     }
 })
 
-// btn.addEventListener('submit', () => {
+btn.addEventListener('click', () => {
+    let dogName = document.querySelector('#dog-name').value;
+    let dogBreed = document.querySelector('#dog-breed').value;
+    let dogAge = Number(document.querySelector('#dog-age').value);
 
-// })
-
-
-// let options = "`<option value='' disabled selected> Veuillez sélectionnez un chien </option>`";
-
-
-// select.innerHTML = options;
-
-// const IndexChien = document.getElementById('index-chien');
-
-// IndexChien.innerHTML += `<p> L'ID de votre chien est </p> `;
-
-// const nomInput = document.querySelector('#nom');
-// const ageInput = document.querySelector('#age');
-// const raceInput = document.querySelector('#race');
-
-// const nom = nomInput.value;
-// const age = ageInput.value;
-// const race = raceInput.value;
-
-// const newDog = { 
-//                     nom: nom,
-//                     age: ageInput,
-//                     race: race
-//                 };
-
-// chiens.push(newDog);
+    chiens.push({
+        nom : dogName,
+        age: dogAge,
+        race: dogBreed
+    })
+    refreshDogSelect();
+    output.textContent = "";
+})
 
 
-
-// const form = document.getElementById('form');
-
-// form.addEventListener('change', (chiens) => {
-//     
-// })
-
-// console.log(form);
-
-// const ListChiens = document.getElementById("chiens");
-
-// ListChiens.addEventListener("change", () => {
-
-// })
+refreshDogSelect();
