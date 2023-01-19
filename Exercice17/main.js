@@ -12,35 +12,47 @@ let chiens = [
 ];
 
 
-const select = document.getElementById('chiens');
+const select = document.getElementById('dog-select');
 
-let options = "`<option value='' disabled selected> Veuillez sélectionnez un chien </option>`";
+const btn = document.getElementById('btn-submit');
+
+const output = document.getElementById('selectOutput');
+
+// console.log(select);
+// console.log(btn);
+// console.log(output);
+
 
 chiens.forEach(chien => {
-    options += `<option value="${chien.nom}"> ${chien.nom} `;
+    select.innerHTML += `<option value="${chiens.indexOf(chien)+1}"> ${chien.nom} </option> `;
 });
 
-select.innerHTML = options;
 
-const IndexChien = document.getElementById('index-chien');
 
-IndexChien.innerHTML += `<p> L'ID de votre chien est </p> `;
+// let options = "`<option value='' disabled selected> Veuillez sélectionnez un chien </option>`";
 
-const nomInput = document.querySelector('#nom');
-const ageInput = document.querySelector('#age');
-const raceInput = document.querySelector('#race');
 
-const nom = nomInput.value;
-const age = ageInput.value;
-const race = raceInput.value;
+// select.innerHTML = options;
 
-const newDog = { 
-                    nom: nom,
-                    age: ageInput,
-                    race: race
-                };
+// const IndexChien = document.getElementById('index-chien');
 
-chiens.push(newDog);
+// IndexChien.innerHTML += `<p> L'ID de votre chien est </p> `;
+
+// const nomInput = document.querySelector('#nom');
+// const ageInput = document.querySelector('#age');
+// const raceInput = document.querySelector('#race');
+
+// const nom = nomInput.value;
+// const age = ageInput.value;
+// const race = raceInput.value;
+
+// const newDog = { 
+//                     nom: nom,
+//                     age: ageInput,
+//                     race: race
+//                 };
+
+// chiens.push(newDog);
 
 
 
